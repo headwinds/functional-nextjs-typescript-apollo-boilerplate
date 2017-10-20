@@ -8,6 +8,7 @@ import {
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { ApolloClient } from 'react-apollo'
 import { once, assocPath } from 'ramda'
+//import createSagaMiddleware from 'redux-saga'
 
 import { reducers, RootState } from '~/modules'
 
@@ -18,6 +19,8 @@ type RootStateWithApollo = RootState & InitialState
 type ReduxStore = Store<RootStateWithApollo>
 type RootReducer = Reducer<RootStateWithApollo>
 
+//https://github.com/goblindegook/dictionary-react-redux-typescript/blob/master/src/store.ts
+
 const createInitialState = (apolloData: object) =>
   assocPath(['apollo', 'data'], apolloData, {}) as InitialState
 
@@ -26,6 +29,10 @@ function create(apollo: ApolloClient, apolloData?: object): ReduxStore {
     ...reducers,
     apollo: apollo.reducer(),
   })
+
+  //  const sagaMiddleware = createSagaMiddleware();
+  //const sagaMiddleware = createSagaMiddleware()
+  // const middlewares = [apollo.middleware(), sagaMiddleware]
   const middlewares = [apollo.middleware()]
 
   const initialState = apolloData ? createInitialState(apolloData) : {}
