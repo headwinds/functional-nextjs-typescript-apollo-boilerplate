@@ -21,7 +21,7 @@ module.exports = {
      * Component relative images in /build
      ************************/
     config.module.rules.push({
-      test: /\.(png|jpe?g|gif)$/i,
+      test: /\.(png|jpe?g|svg|gif)$/i,
       use: [
         // using emit-file-loader just to shut up 'Cannot find module',
         // it will make copy of image in component directory

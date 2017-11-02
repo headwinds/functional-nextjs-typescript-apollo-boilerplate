@@ -16,12 +16,13 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
-          <title>Hipstaplate</title>
+          <title>owl</title>
           <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
           {styleTags}
         </Head>
         <body>
           {main}
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" />
           <NextScript />
         </body>
       </html>

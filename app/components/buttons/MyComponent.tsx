@@ -1,4 +1,5 @@
-import RaisedButton from 'material-ui/RaisedButton'
+import { withStyles } from 'material-ui/styles'
+import Button from 'material-ui/Button'
 
 const MyComponent = (props: any) => {
   const { handleClick } = props
@@ -6,7 +7,9 @@ const MyComponent = (props: any) => {
     <div>
       <p>something-dev-01</p>
       <p>password</p>
-      <RaisedButton onClick={handleClick} label="Login" />
+      <Button raised onClick={handleClick}>
+        Login
+      </Button>
     </div>
   )
 }
